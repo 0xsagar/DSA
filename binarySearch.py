@@ -23,4 +23,5 @@ def binarySearch(arr, n, k):
     return -1
 
 
+print("Binary Search")
 print(binarySearch(arr, n, k))
