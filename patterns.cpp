@@ -599,6 +599,13 @@ void pattern21(int n)
     }
 }
 
+// 4 4 4 4 4 4 4
+// 4 3 3 3 3 3 4
+// 4 3 2 2 2 3 4
+// 4 3 2 1 2 3 4
+// 4 3 2 2 2 3 4
+// 4 3 3 3 3 3 4
+// 4 4 4 4 4 4 4
 void pattern22(int n)
 {
     for (int i = 0; i < 2 * n - 1; i++)
@@ -609,7 +616,7 @@ void pattern22(int n)
             int left = j;
             int right = (2 * n - 2) - j;
             int down = (2 * n - 2) - i;
-            cout << (n - min(min(top, down), min(left, right)));
+            cout << (n - min(min(top, down), min(left, right))) << " ";
         }
         cout << endl;
     }
@@ -617,7 +624,7 @@ void pattern22(int n)
 
 int main()
 {
-    int n = 5;
+    int n = 4;
     pattern22(n);
     return 0;
 }
