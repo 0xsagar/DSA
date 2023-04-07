@@ -18,7 +18,7 @@ void selectionSort(int arr[], int n)
         arr[i] = temp;
     }
 }
-
+// Time Complexity = O(n square)
 int main()
 {
     int n;
