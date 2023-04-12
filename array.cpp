@@ -77,6 +77,7 @@ void uniqueElement(int demo[], int n)
 {
     // pre-compute
     unordered_map<int, int> mpp;
+    // Use "unordered_map" for better time complexity than a "map"
     for (int i = 0; i < n; i++)
     {
         mpp[demo[i]]++;
@@ -94,7 +95,8 @@ void uniqueElement(int demo[], int n)
 void duplicateElement(int demo[], int n)
 {
     // pre-compute
-    unordered_map<int, int> mpp;
+    map<int, int> mpp;
+    // Use "unordered_map" for better time complexity than a "map"
     for (int i = 0; i < n; i++)
     {
         mpp[demo[i]]++;
@@ -106,6 +108,77 @@ void duplicateElement(int demo[], int n)
             cout << it.first << " ";
         }
     }
+}
+
+// Question: Find the Array Intersection
+void arrayIntersection(int demo[], int demo2[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (demo[i] == demo2[j])
+            {
+                cout << demo[i] << " ";
+            }
+        }
+    }
+}
+
+// Question: Find the second smallest and second largest element in the array
+void secondSmallestandLargestElement(int demo[], int n)
+{
+    if (n < 2)
+        return;
+    int smallest = INT_MAX, secondSmallest = INT_MAX, largest = INT_MIN, secondLargest = INT_MIN;
+    for (int i = 0; i < n; i++)
+    {
+        if (demo[i] < smallest)
+        {
+            smallest = demo[i];
+        }
+        else if (demo[i] < secondSmallest && demo[i] != smallest)
+        {
+            secondSmallest = demo[i];
+        }
+        if (demo[i] > largest)
+        {
+            largest = demo[i];
+        }
+        else if (demo[i] > secondLargest && demo[i] != largest)
+        {
+            secondLargest = demo[i];
+        }
+    }
+    cout << smallest << " " << secondSmallest << " " << secondLargest << " " << largest << endl;
+}
+
+// Question: Check if the array is sorted
+bool checkSortedArray(int demo[], int n)
+{
+    for (int i = 1; i < n; i++)
+    {
+        if (demo[i] < demo[i - 1])
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+bool checkSortedArrayAndRotation(vector<int> &nums)
+{
+    int count = 0;
+    for (int i = 1; i < nums.size(); i++)
+    {
+        if (nums[i] < nums[i - 1])
+        {
+            count++;
+        }
+    }
+    if (nums[0] < nums[nums.size() - 1])
+        count++;
+    return count <= 1;
 }
 
 int main()
@@ -120,8 +193,10 @@ int main()
     // minMaxArray(arr, n, minimum, maximum);
     // arraySum(arr, n);
 
-    int demo[10] = {1, 1, 2, 3, 4, 6, 6, 8, 10, 10};
+    int demo[5] = {1, 9, 2, 3, 4};
+    int demo2[5] = {1, 8, 3, 4, 6};
     // cin >> key;
+    // cout << linearSearch(demo, 10, key);
     //  bool found = linearSearch(demo, 10, key);
     //  if (found)
     //  {
@@ -138,5 +213,13 @@ int main()
 
     // uniqueElement(demo, 10);
 
-    duplicateElement(demo, 10);
+    // duplicateElement(demo, 10);
+
+    // arrayIntersection(demo, demo2, 5);
+
+    // secondSmallestandLargestElement(demo, 5);
+
+    // cout << checkSortedArray(demo, 5);
+    // vector<int> nums = {5, 4, 7, 1, 2, 3};
+    // cout << checkSortedArrayAndRotation(nums);
 }
