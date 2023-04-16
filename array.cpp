@@ -330,6 +330,20 @@ void sortZeroOneTwo(int arr[], int n)
     }
 }
 
+// Question: Remove duplicates from a sorted array
+void removeDuplicate(int array1[], int n)
+{
+    map<int, int> mpp;
+    for (int i = 0; i < n; i++)
+    {
+        mpp[array1[i]]++;
+    }
+    for (auto it : mpp)
+    {
+        cout << it.first << " ";
+    }
+}
+
 int main()
 {
     int n, minimum = INT_MAX, maximum = INT_MIN, key;
@@ -385,4 +399,7 @@ int main()
 
     // int arr[9] = {1, 2, 0, 1, 2, 0, 0, 1, 0};
     // sortZeroOneTwo(arr, 9);
+
+    // int array1[6] = {1, 1, 2, 2, 3, 3};
+    // removeDuplicate(array1, 6);
 }
