@@ -74,7 +74,7 @@ int lastOcc(int arr[], int n, int k)
     return ans;
 }
 
-//Question: Find the pivot index from which the sum of elements at the left and the sum of elements at the right are equal 
+// Question: Find the pivot index from which the sum of elements at the left and the sum of elements at the right are equal
 int pivotIndex(int arr[], int n)
 {
     int s = 0, e = n - 1, sumLeft, sumRight;
@@ -107,17 +107,96 @@ int pivotIndex(int arr[], int n)
         }
     }
     return -1;
+    // Do it again with better time complexity
 }
+
+int getPivot(int arr[], int n)
+{
+    int s = 0, e = n - 1;
+    int mid = s + (e - s) / 2;
+    while (s < e)
+    {
+        if (arr[mid] >= arr[0])
+        {
+            s = mid + 1;
+        }
+        else
+        {
+            e = mid;
+        }
+        mid = s + (e - s) / 2;
+    }
+    return s;
+}
+
+// Search In Rotated Sorted Array [Coding Ninja]
+int getPivot1(int arr[], int n)
+{
+    int s = 0, e = n - 1;
+    int mid = s + (e - s) / 2;
+    while (s < e)
+    {
+        if (arr[mid] >= arr[0])
+        {
+            s = mid + 1;
+        }
+        else
+        {
+            e = mid;
+        }
+        mid = s + (e - s) / 2;
+    }
+    return s;
+}
+int binarySearch1(int arr[], int s, int e, int key)
+{
+    int start = s, end = e, mid;
+    mid = (start + (end - start) / 2);
+    while (start <= end)
+    {
+        if (arr[mid] == key)
+        {
+            return mid;
+        }
+        if (arr[mid] < key)
+        {
+            start = mid + 1;
+        }
+        else
+        {
+            end = mid - 1;
+        }
+        mid = (start + (end - start) / 2);
+    }
+    return -1;
+}
+int findPosition1(int arr[], int n, int k)
+{
+    int pivot = getPivot1(arr, n);
+    if (k >= arr[pivot] && k <= arr[n - 1])
+    {
+        return binarySearch1(arr, pivot, n - 1, k);
+    }
+    else
+    {
+        return binarySearch1(arr, 0, pivot - 1, k);
+    }
+}
+
+// Find the square root of the element
+int squareRoot(int arr[], int n) {}
 
 int main()
 {
     int n = 8, key;
-    cout << "Enter the number you want to find in the array: ";
+    // cout << "Enter the number you want to find in the array: ";
     cin >> key;
-    int arr[8] = {1, 1, 2, 2, 2, 2, 3, 10};
+    int arr[8] = {6, 7, 8, 9, 1, 2, 3, 4};
     // cout << "Index at which the key is present is: " << binarySearch(arr, n, key);
     // cout << "First occurrence of the key is at index: " << firstOcc(arr, n, key) << endl;
     // cout << "Last occurrence of the key is at index: " << lastOcc(arr, n, key) << endl;
 
-    cout << pivotIndex(arr, n);
+    // cout << pivotIndex(arr, n);
+    // cout << "Pivot is at index: " << getPivot(arr, n);
+    // cout << "Index: " << findPosition1(arr, n, key);
 }
