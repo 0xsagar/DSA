@@ -183,15 +183,54 @@ int findPosition1(int arr[], int n, int k)
     }
 }
 
-// Find the square root of the element
-int squareRoot(int arr[], int n) {}
+// Find the integer part of square root of the element
+long long int squareRootInteger(int n)
+{
+    int s = 0, e = n;
+    long long int ans = -1;
+    long long int mid = s + (e - s) / 2;
+    while (s <= e)
+    {
+        long long int square = mid * mid;
+        if (square == n)
+        {
+            return mid;
+        }
+        if (square < n)
+        {
+            ans = mid;
+            s = mid + 1;
+        }
+        else
+        {
+            e = mid - 1;
+        }
+        mid = s + (e - s) / 2;
+    }
+    return ans;
+}
+
+double morePrecision(int n, int precision, int tempSol)
+{
+    double factor = 1;
+    double ans = tempSol;
+    for (int i = 0; i < precision; i++)
+    {
+        factor = factor / 10;
+        for (double j = ans; j * j < n; j += factor)
+        {
+            ans = j;
+        }
+    }
+    return ans;
+}
 
 int main()
 {
     int n = 8, key;
     // cout << "Enter the number you want to find in the array: ";
     cin >> key;
-    int arr[8] = {6, 7, 8, 9, 1, 2, 3, 4};
+    // int arr[8] = {6, 7, 8, 9, 1, 2, 3, 4};
     // cout << "Index at which the key is present is: " << binarySearch(arr, n, key);
     // cout << "First occurrence of the key is at index: " << firstOcc(arr, n, key) << endl;
     // cout << "Last occurrence of the key is at index: " << lastOcc(arr, n, key) << endl;
@@ -199,4 +238,7 @@ int main()
     // cout << pivotIndex(arr, n);
     // cout << "Pivot is at index: " << getPivot(arr, n);
     // cout << "Index: " << findPosition1(arr, n, key);
+
+    int tempSol = squareRootInteger(key);
+    cout << "Final ans: " << morePrecision(key, 3, tempSol);
 }
