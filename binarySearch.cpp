@@ -209,7 +209,6 @@ long long int squareRootInteger(int n)
     }
     return ans;
 }
-
 double morePrecision(int n, int precision, int tempSol)
 {
     double factor = 1;
