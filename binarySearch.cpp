@@ -238,6 +238,6 @@ int main()
     // cout << "Pivot is at index: " << getPivot(arr, n);
     // cout << "Index: " << findPosition1(arr, n, key);
 
-    int tempSol = squareRootInteger(key);
-    cout << "Final ans: " << morePrecision(key, 3, tempSol);
+    // int tempSol = squareRootInteger(key);
+    // cout << "Final ans: " << morePrecision(key, 3, tempSol);
 }
