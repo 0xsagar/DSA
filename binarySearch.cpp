@@ -224,6 +224,9 @@ double morePrecision(int n, int precision, int tempSol)
     return ans;
 }
 
+// Question: Book Allocation Problem
+int bookAllocation() {}
+
 int main()
 {
     int n = 8, key;

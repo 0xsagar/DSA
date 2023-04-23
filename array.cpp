@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <algorithm>
 using namespace std;
 // Question: Find the minimum and maximum element of an array
 void minMaxArray(int *arr, int n, int &minimum, int &maximum)
@@ -402,4 +403,15 @@ int main()
 
     // int array1[6] = {1, 1, 2, 2, 3, 3};
     // removeDuplicate(array1, 6);
+
+    // array<int, 6> demoArr;
+    // demoArr.fill(-1);
+
+    // int demoArr[10];
+    // std::fill_n(demoArr, 10, -1);
+
+    // for (int i = 0; i < 10; i++)
+    // {
+    //     cout << demoArr[i] << " ";
+    // }
 }
