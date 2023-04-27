@@ -225,8 +225,105 @@ double morePrecision(int n, int precision, int tempSol)
 }
 
 // Question: Book Allocation Problem
-int bookAllocation() {}
+bool isPossible1(int arr[], int n, int m, int mid)
+{
+    int studentCount = 1;
+    int pageSum = 0;
+    for (int j = 0; j < n; j++)
+    {
+        if (pageSum + arr[j] <= mid)
+        {
+            pageSum += arr[j];
+        }
+        else
+        {
+            studentCount++;
+            if (studentCount > m || arr[j] > mid)
+            {
+                return false;
+            }
+            pageSum = arr[j];
+        }
+    }
+    return true;
+}
+int bookAllocation(int arr[], int n, int m)
+{
+    int s = 0, sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += arr[i];
+    }
 
+    int e = sum;
+    int ans = -1;
+    int mid = s + (e - s) / 2;
+    while (s <= e)
+    {
+        if (isPossible1(arr, n, m, mid))
+        {
+            ans = mid;
+            e = mid - 1;
+        }
+        else
+        {
+            s = mid + 1;
+        }
+        mid = s + (e - s) / 2;
+    }
+    return ans;
+}
+
+
+//Question: Painter's Partition Problem
+bool isPossible2(int arr[], int n, int k, int mid)
+{
+    int studentCount = 1;
+    int pageSum = 0;
+    for (int j = 0; j < n; j++)
+    {
+        if (pageSum + arr[j] <= mid)
+        {
+            pageSum += arr[j];
+        }
+        else
+        {
+            studentCount++;
+            if (studentCount > k || arr[j] > mid)
+            {
+                return false;
+            }
+            pageSum = arr[j];
+        }
+    }
+    return true;
+}
+int painterPartition(int arr[], int n, int k)
+{
+    int s = 0, sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += arr[i];
+    }
+
+    int e = sum;
+    int ans = -1;
+    int mid = s + (e - s) / 2;
+    while (s <= e)
+    {
+        if (isPossible2(arr, n, k, mid))
+        {
+            ans = mid;
+            e = mid - 1;
+        }
+        else
+        {
+            s = mid + 1;
+        }
+        mid = s + (e - s) / 2;
+    }
+    return ans;
+}
 int main()
 {
     int n = 8, key;
@@ -243,4 +340,9 @@ int main()
 
     // int tempSol = squareRootInteger(key);
     // cout << "Final ans: " << morePrecision(key, 3, tempSol);
+
+    int arr[4] = {10, 20, 30, 40};
+    // cout << bookAllocation(arr, 4, 2);
+
+    cout << painterPartition(arr, 4, 2);
 }
