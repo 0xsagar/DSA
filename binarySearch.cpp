@@ -274,8 +274,7 @@ int bookAllocation(int arr[], int n, int m)
     return ans;
 }
 
-
-//Question: Painter's Partition Problem
+// Question: Painter's Partition Problem
 bool isPossible2(int arr[], int n, int k, int mid)
 {
     int studentCount = 1;
@@ -324,11 +323,58 @@ int painterPartition(int arr[], int n, int k)
     }
     return ans;
 }
+
+// Question: Aggressive Cows
+bool isPossible3(vector<int> &stalls, int k, int mid)
+{
+    int cowCount = 1;
+    int lastPosition = stalls[0];
+    for (int i = 0; i < stalls.size(); i++)
+    {
+        if (stalls[i] - lastPosition >= mid)
+        {
+            cowCount++;
+            if (cowCount == k)
+            {
+                return true;
+            }
+            lastPosition = stalls[i];
+        }
+    }
+    return false;
+}
+int aggressiveCows(vector<int> &stalls, int k)
+{
+    sort(stalls.begin(), stalls.end());
+    int s = 0, maxi = -1;
+    for (int i = 0; i < stalls.size(); i++)
+    {
+        maxi = max(maxi, stalls[i]);
+    }
+    int e = maxi;
+    int ans = -1;
+    int mid = s + (e - s) / 2;
+    while (s <= e)
+    {
+        if (isPossible3(stalls, k, mid))
+        {
+            ans = mid;
+            s = mid + 1;
+        }
+        else
+        {
+            e = mid - 1;
+        }
+        mid = s + (e - s) / 2;
+    }
+    return ans;
+}
+
 int main()
 {
     int n = 8, key;
     // cout << "Enter the number you want to find in the array: ";
-    cin >> key;
+    // cin >> key;
     // int arr[8] = {6, 7, 8, 9, 1, 2, 3, 4};
     // cout << "Index at which the key is present is: " << binarySearch(arr, n, key);
     // cout << "First occurrence of the key is at index: " << firstOcc(arr, n, key) << endl;
@@ -341,8 +387,11 @@ int main()
     // int tempSol = squareRootInteger(key);
     // cout << "Final ans: " << morePrecision(key, 3, tempSol);
 
-    int arr[4] = {10, 20, 30, 40};
+    // int arr[4] = {10, 20, 30, 40};
     // cout << bookAllocation(arr, 4, 2);
 
-    cout << painterPartition(arr, 4, 2);
+    // cout << painterPartition(arr, 4, 2);
+
+    // vector<int> stalls = {4, 2, 1, 3, 6};
+    // cout << aggressiveCows(stalls, 2);
 }
