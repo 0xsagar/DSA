@@ -1,20 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+// sabse minimum element ko find krke uski right place pe store krna hai
 void selectionSort(int arr[], int n)
 {
-    for (int i = 0; i <= n - 2; i++)
+    for (int i = 0; i < n - 1; i++)
     {
-        int mini = i;
-        for (int j = i; j <= n - 1; j++)
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++)
         {
-            if (arr[j] < arr[mini])
+            if (arr[j] < arr[minIndex])
             {
-                mini = j;
+                minIndex = j;
             }
         }
-        int temp = arr[mini];
-        arr[mini] = arr[i];
+        int temp = arr[minIndex];
+        arr[minIndex] = arr[i];
         arr[i] = temp;
     }
 }
@@ -24,12 +24,12 @@ int main()
     int n;
     cin >> n;
     int arr[n];
-    for (int i = 0; i <= n - 1; i++)
+    for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
     selectionSort(arr, n);
-    for (int i = 0; i <= n - 1; i++)
+    for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
     }
