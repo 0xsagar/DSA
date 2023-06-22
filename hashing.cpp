@@ -89,34 +89,34 @@ int hashh[10000000] = {0};
 // }
 
 // Question: Find the highest and lowest frequency element in the array
-int main()
-{
-    int n, highest = INT_MIN, lowest = INT_MAX, h_Ele, l_Ele;
-    cin >> n;
-    int arr[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-    // precompute
-    unordered_map<int, int> mpp;
-    for (int i = 0; i < n; i++)
-    {
-        mpp[arr[i]]++;
-    }
-    for (auto it : mpp)
-    {
-        if (it.second >= highest)
-        {
-            highest = it.second;
-            h_Ele = it.first;
-        }
-        if (it.second <= lowest)
-        {
-            lowest = it.second;
-            l_Ele = it.first;
-        }
-    }
-    cout << h_Ele << " and " << l_Ele << endl;
-    return 0;
-}
+// int main()
+// {
+//     int n, highest = INT_MIN, lowest = INT_MAX, h_Ele, l_Ele;
+//     cin >> n;
+//     int arr[n];
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> arr[i];
+//     }
+//     // precompute
+//     unordered_map<int, int> mpp;
+//     for (int i = 0; i < n; i++)
+//     {
+//         mpp[arr[i]]++;
+//     }
+//     for (auto it : mpp)
+//     {
+//         if (it.second >= highest)
+//         {
+//             highest = it.second;
+//             h_Ele = it.first;
+//         }
+//         if (it.second <= lowest)
+//         {
+//             lowest = it.second;
+//             l_Ele = it.first;
+//         }
+//     }
+//     cout << h_Ele << " and " << l_Ele << endl;
+//     return 0;
+// }
