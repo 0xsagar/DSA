@@ -80,13 +80,15 @@ using namespace std;
 // }
 
 // Q4: Union of two arrays
-int main(){
-    vector<int> arr{1,2,3,4,5,6};
+int main()
+{
+    vector<int> arr{1, 2, 3, 4, 5, 6};
     int sizea = 6;
-    vector<int> brr{4,5,6,7,8,9};
+    vector<int> brr{4, 5, 6, 7, 8, 9};
     int sizeb = 6;
     vector<int> ans;
-    for(int i = 0; i < sizea; i++){
-        
+    for (int i = 0; i < sizea; i++)
+    {
+        // abcd
     }
 }
