@@ -80,15 +80,101 @@ using namespace std;
 // }
 
 // Q4: Union of two arrays
-int main()
-{
-    vector<int> arr{1, 2, 3, 4, 5, 6};
-    int sizea = 6;
-    vector<int> brr{4, 5, 6, 7, 8, 9};
-    int sizeb = 6;
-    vector<int> ans;
-    for (int i = 0; i < sizea; i++)
-    {
-        // abcd
-    }
-}
+// int main()
+// {
+//     vector<int> arr{1, 2, 3, 4, 5, 6};
+//     int sizea = 6;
+//     vector<int> brr{4, 5, 6, 7, 8, 9};
+//     int sizeb = 6;
+//     vector<int> ans;
+//     for (int i = 0; i < sizea; i++)
+//     {
+//         int element = arr[i];
+//         for (int j = 0; j < sizeb; j++)
+//         {
+//             if (element == brr[j])
+//             {
+//                 brr[j] = INT_MIN;
+//             }
+//         }
+//     }
+//     for (int i = 0; i < sizea; i++)
+//     {
+//         ans.push_back(arr[i]);
+//     }
+//     for (int i = 0; i < sizeb; i++)
+//     {
+//         if (brr[i] != INT_MIN)
+//         {
+//             ans.push_back(brr[i]);
+//         }
+//     }
+//     cout << "Printing the ans: ";
+//     for (auto i : ans)
+//     {
+//         cout << i << " ";
+//     }
+// }
+
+// Q5: Pair-Sum
+// int main()
+// {
+//     vector<int> a{1, 2, 3, 4, 5, 6};
+//     int sum, sizea = a.size(), ps = 7;
+//     for (int i = 0; i < sizea; i++)
+//     {
+//         for (int j = i + 1; j < sizea; j++)
+//         {
+//             sum = a[i] + a[j];
+//             if (sum == ps)
+//             {
+//                 cout << a[i] << "," << a[j] << endl;
+//             }
+//         }
+//     }
+// }
+
+// Q6: Sort 0 and 1
+// int main()
+// {
+//     int arr[] = {0, 1, 0, 0, 1, 1, 0, 0, 1, 0};
+//     int i = 0, start = 0, end = 9;
+//     // while (i != end)
+//     // {
+//     //     if (arr[i] == 0)
+//     //     {
+//     //         swap(arr[start], arr[i]);
+//     //         i++;
+//     //         start++;
+//     //     }
+//     //     if (arr[i] == 1)
+//     //     {
+//     //         swap(arr[end], arr[i]);
+//     //         end--;
+//     //     }
+//     // }
+
+//     while (start < end)
+//     {
+//         if (arr[start] == 0 && start < end)
+//         {
+//             start++;
+//         }
+//         if (arr[end] == 1 && start < end)
+//         {
+//             end--;
+//         }
+//         if (arr[start] > arr[end] && start < end)
+//         {
+//             swap(arr[start], arr[end]);
+//             start++;
+//             end--;
+//         }
+//     }
+
+//     for (auto i : arr)
+//     {
+//         cout << i << " ";
+//     }
+// }
+
