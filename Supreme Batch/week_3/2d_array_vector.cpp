@@ -22,4 +22,8 @@ int main()
         }
         cout << endl;
     }
+
+    // how to find no. of rows: arr.size()
+    // how to find no. of columns: arr[0].size() for same no. of columns
+    // how to find no. of columns: arr[i].size() for diff. no. of columns
 }
