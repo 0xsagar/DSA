@@ -81,18 +81,7 @@ int getMin(int arr[][3], int rows, int cols)
     return mini;
 }
 
-// void transposeArr(int arr[][3], rows, cols, transposeArr[][3])
-// {
-//     for (int i = 0; i < rows; i++)
-//     {
-//         for (int j = 0; j < cols; j++)
-//         {
-//             transposeArr[j][i] = arr[i][j];
-//         }
-//     }
-// }
-
-void Transpose(int arr[][3], int rows, int cols, int transpose[][3])
+void transposeArr(int arr[][3], int rows, int cols, int transpose[][3])
 {
 
     for (int i = 0; i < rows; i++)
@@ -126,6 +115,6 @@ int main()
     // cout << "Max value in array : " << getMax(arr, rows, cols) << endl;
     // cout << "Min value in array : " << getMin(arr, rows, cols) << endl;
     int transpose[3][3];
-    Transpose(arr, rows, cols, transpose);
+    transposeArr(arr, rows, cols, transpose);
     return 0;
 }
