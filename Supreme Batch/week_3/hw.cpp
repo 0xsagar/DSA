@@ -262,6 +262,140 @@ void spiralMatrix(vector<vector<int>> &v)
     }
 }
 
+// Question: Add two string of integers
+class ATS
+{
+public:
+    string addTwoString(int *a, int n, int *b, int m)
+    {
+        int carry = 0;
+        string ans;
+        int i = n - 1;
+        int j = m - 1;
+        while (i >= 0 && j >= 0)
+        {
+            int x = a[i] + b[j] + carry;
+            int digit = x % 10;
+            carry = x / 10;
+            ans.push_back(digit + '0');
+            i--, j--;
+        }
+        while (i >= 0)
+        {
+            int x = a[i] + 0 + carry;
+            int digit = x % 10;
+            carry = x / 10;
+            ans.push_back(digit + '0');
+            i--;
+        }
+        while (j >= 0)
+        {
+            int x = 0 + b[j] + carry;
+            int digit = x % 10;
+            carry = x / 10;
+            ans.push_back(digit + '0');
+            j--;
+        }
+        if (carry)
+        {
+            ans.push_back(carry + '0');
+        }
+
+        while (ans[ans.size() - 1] == '0')
+        {
+            ans.pop_back();
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+
+// Question: Find factiroals of large numbers
+class LargeFactorial
+{
+
+public:
+    vector<int> factorialLarge(int N)
+    {
+        vector<int> ans;
+        ans.push_back(1);
+        int carry = 0;
+        for (int i = 2; i <= N; i++)
+        {
+            for (int j = 0; j < ans.size(); j++)
+            {
+                int x = ans[j] * i + carry;
+                ans[j] = x % 10;
+                carry = x / 10;
+            }
+            if (carry)
+            {
+                ans.push_back(carry);
+                // ans + carry;
+            }
+            carry = 0;
+        }
+        reverse(ans.begin(), ans.end());
+        // for (auto i : ans)
+        // {
+        //     cout << i << " ";
+        // }
+        return ans;
+    }
+};
+
+// Question: Find factiroals of large numbers
+class Factorial
+{
+
+public:
+    void GetFactorial(int number)
+    {
+
+        int store[1000] = {0};
+        int index = 0;
+        int result = number;
+
+        // Store the number in the reverse order.
+        // Example: Number 123 is stored as 3, 2, 1
+        //                                  ^  ^  ^
+        //                                  |  |  |
+        //                          Index   0  1  2
+        while (result >= 1)
+        {
+            store[index++] = result % 10;
+            result /= 10;
+        }
+        number--;
+
+        int carry = 0;
+        while (number > 0)
+        {
+            int i = 0;
+            while (i < index)
+            {
+                result = store[i] * number + carry;
+                store[i++] = result % 10;
+                carry = result / 10;
+            }
+            while (carry > 0)
+            {
+                store[i++] = carry % 10;
+                carry /= 10;
+            }
+            number -= 1;
+            index = i;
+        }
+
+        cout << "Factorial : ";
+        for (int i = index - 1; i >= 0; i--)
+        {
+            cout << store[i];
+        }
+        cout << endl;
+    }
+};
+
 int main()
 {
     // int arr[9] = {0, 1, 2, 0, 1, 2, 0, 1, 2};
@@ -295,4 +429,14 @@ int main()
 
     // vector<vector<int>> v{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
     // spiralMatrix(v);
+
+    // ATS a;
+    // a.addTwoString(1234, 4, 1234, 4);
+
+    LargeFactorial lf;
+    lf.factorialLarge(7);
+
+    // Factorial f;
+    // f.GetFactorial(7);
+    return 0;
 }
